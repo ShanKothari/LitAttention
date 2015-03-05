@@ -36,7 +36,7 @@ for block = 1:3
     fid = fopen(sprintf('%s_block%d.csv',outbase,block), 'w');
     fprintf(fid, 'time, gaze_x, gaze_y, marker\n');
     gaze = eyeComputeGaze(data(gazeInds,3:4), cal);
-    for ii=1:size(gazeCoords,1)
+    for ii=1:size(gaze,1)
         fprintf(fid, '%0.4f, %0.4f, %0.4f, %s\n', (ii-1)*deltaTime, gaze(ii,1), gaze(ii,2), markers{gazeInds(ii)});
     end
     fclose(fid);
